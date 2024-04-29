@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 
 export const CartContext = createContext();
@@ -6,8 +6,10 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
+    const memoizedValue = useMemo(() => [cart, setCart], [cart, setCart]);
+
     return (
-        <CartContext.Provider value={[cart, setCart]}>
+        <CartContext.Provider value={memoizedValue}>
             {children}
         </CartContext.Provider>
     );

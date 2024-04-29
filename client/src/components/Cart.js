@@ -5,7 +5,7 @@ import "../stylesheets/Cart.css";
 
 
 const Cart = () => {
-    const [cart] = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
     const totalCost = cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
 
     return (

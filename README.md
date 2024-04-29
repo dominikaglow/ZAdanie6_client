@@ -1,0 +1,1 @@
+# ZAdanie6_client
